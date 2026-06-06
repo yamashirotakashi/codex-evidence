@@ -1,6 +1,6 @@
 # Release Checklist v0.1.0
 
-Status: public repository published, release tag not yet published.
+Status: v0.1.0 public beta tag and GitHub Release published.
 
 ## Candidate
 
@@ -9,14 +9,15 @@ Status: public repository published, release tag not yet published.
 - Branch: `main`
 - Public remote: `https://github.com/yamashirotakashi/codex-evidence`
 - Publication status: public branch push completed
-- Release tag status: not published
+- Release tag status: published as `v0.1.0`
+- GitHub Release status: published as prerelease / public beta
 - Submission status: no Codex for Open Source form submission performed
 
 ## Release Decision
 
 - Code and documentation readiness: GO for public beta candidate
 - Public GitHub push: DONE, approved by user
-- GitHub release/tag publication: GO, approved by user for v0.1.0 public beta
+- GitHub release/tag publication: DONE, approved by user for v0.1.0 public beta
 - Codex for Open Source submission: NO-GO until explicit user approval for form submission
 
 ## Required Validation
@@ -100,9 +101,15 @@ Publication note:
 - After `irdtechbook` was added as a collaborator on `yamashirotakashi/codex-evidence`, `git push -u origin main` succeeded.
 - `origin` is set to `https://github.com/yamashirotakashi/codex-evidence.git`.
 - Local branch `main` tracks `origin/main`.
-- No release tag has been created or pushed.
+- Release tag `v0.1.0` has been created and pushed.
 
-Tag publication remains separately gated:
+GitHub Release:
+
+- URL: `https://github.com/yamashirotakashi/codex-evidence/releases/tag/v0.1.0`
+- Name: `v0.1.0 Public Beta`
+- Type: prerelease / public beta
+
+Tag publication command used:
 
 ```powershell
 git tag v0.1.0
