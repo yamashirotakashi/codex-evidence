@@ -49,7 +49,7 @@ OpenAI フォーム上で確認した必須項目:
 - OpenAI Organization ID: チャットで受領済み。公開リポジトリに入る文書には完全な値を記載しない
 - メンテナー種別: メインメンテナー
 - 希望項目: API credits
-- public push: 承認済み。ただし 2026-06-06 時点ではローカル Git 認証が `irdtechbook` として扱われ、`yamashirotakashi/codex-evidence` への権限不足で push 未完了
+- public push: 完了。`irdtechbook` への collaborator 権限追加後、`main` を `https://github.com/yamashirotakashi/codex-evidence` へ push 済み
 - release / form submission: 追加の明示承認待ち
 
 ## X 検索メモ

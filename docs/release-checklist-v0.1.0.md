@@ -1,6 +1,6 @@
 # Release Checklist v0.1.0
 
-Status: public repository created, local branch ready, public push blocked by GitHub access.
+Status: public repository published, release tag not yet published.
 
 ## Candidate
 
@@ -8,14 +8,14 @@ Status: public repository created, local branch ready, public push blocked by Gi
 - Version: `0.1.0`
 - Branch: `main`
 - Public remote: `https://github.com/yamashirotakashi/codex-evidence`
-- Publication status: public branch push approved, attempted, and blocked by GitHub 403
+- Publication status: public branch push completed
 - Release tag status: not published
 - Submission status: no Codex for Open Source form submission performed
 
 ## Release Decision
 
 - Code and documentation readiness: GO for public beta candidate
-- Public GitHub push: GO, approved by user, pending credential/access fix
+- Public GitHub push: DONE, approved by user
 - GitHub release/tag publication: NO-GO until explicit user approval
 - Codex for Open Source submission: NO-GO until explicit user approval for form submission
 
@@ -39,7 +39,7 @@ Latest validation in this workline:
 - pytest: pass
 - public hygiene: pass, zero disallowed violations
 - current-state validator: pass
-- target git status after committed work: clean before push attempt
+- target git status after committed work: clean before final publication status update
 
 ## Public Surface
 
@@ -84,7 +84,7 @@ The public beta may claim:
 
 ## Public Push
 
-Approved by user and attempted:
+Approved by user and performed:
 
 ```powershell
 git remote add origin https://github.com/yamashirotakashi/codex-evidence
@@ -92,19 +92,13 @@ git branch -M main
 git push -u origin main
 ```
 
-Current blocker:
+Publication note:
 
-- Local Git credential resolved to GitHub account `irdtechbook`.
-- GitHub returned `403` for `yamashirotakashi/codex-evidence`.
-- `origin` is already set to `https://github.com/yamashirotakashi/codex-evidence.git`.
-- Local branch is already `main`.
+- Initial push was blocked by GitHub `403` because the local credential resolved to `irdtechbook`.
+- After `irdtechbook` was added as a collaborator on `yamashirotakashi/codex-evidence`, `git push -u origin main` succeeded.
+- `origin` is set to `https://github.com/yamashirotakashi/codex-evidence.git`.
+- Local branch `main` tracks `origin/main`.
 - No release tag has been created or pushed.
-
-Resolution options:
-
-- Grant repository write access to `irdtechbook` on `yamashirotakashi/codex-evidence`, then rerun `git push -u origin main`.
-- Or switch the local Git credential for `github.com` to an account that owns or can write to `yamashirotakashi/codex-evidence`, then rerun `git push -u origin main`.
-- Or push through an SSH remote configured for the owner account.
 
 Tag publication remains separately gated:
 
