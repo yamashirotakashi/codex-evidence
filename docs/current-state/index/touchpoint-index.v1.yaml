@@ -43,9 +43,58 @@ touchpoints:
       - onboarding quality gate
     features:
       - repository-bootstrap
+  - touchpoint_id: public-product-implementation
+    files:
+      - pyproject.toml
+      - src/codex_evidence
+      - tests
+      - README.md
+      - docs/architecture.md
+      - docs/privacy.md
+      - docs/rollback.md
+      - docs/testing.md
+    concerns:
+      - public CLI package
+      - evidence store
+      - read-only MCP
+      - local runtime registration
+      - public MVP tests
+    features:
+      - codex-evidence-public-product
+  - touchpoint_id: public-product-release-and-application
+    files:
+      - docs/release-notes-v0.1.0.md
+      - docs/release-checklist-v0.1.0.md
+      - docs/codex-for-oss-application.md
+      - docs/dogfood-proof.md
+      - docs/roadmap.md
+      - docs/provenance.md
+      - docs/migration-session-memo.md
+    concerns:
+      - public beta release
+      - Codex for OSS application packet
+      - dogfood proof
+      - roadmap
+      - provenance
+    features:
+      - codex-evidence-public-product
+  - touchpoint_id: public-product-spec
+    files:
+      - specs/codex-evidence-public-product/requirements.md
+      - specs/codex-evidence-public-product/design.md
+      - specs/codex-evidence-public-product/tasks.yaml
+      - specs/codex-evidence-public-product/traceability.csv
+      - specs/codex-evidence-public-product/worklog.ndjson
+    concerns:
+      - future work entrypoint
+      - migrated public-product evidence
+      - SDD-TDD-EDD continuity
+    features:
+      - codex-evidence-public-product
 
 reverse_lookup_notes:
-  - Product implementation has not yet been extracted; all current touchpoints belong to repository-bootstrap.
+  - Future product work should start from codex-evidence-public-product.
+  - repository-bootstrap remains only the governance and genesis feature.
 
 confidence_and_gaps:
   confidence: high
@@ -54,5 +103,6 @@ confidence_and_gaps:
     - docs/repository-genesis/repository-init-manifest.v1.yaml
     - specs/README.md
     - scripts/validate_current_state_docs.py
+    - docs/current-state/features/codex-evidence-public-product/feature-detail.v1.yaml
   open_questions: []
 

@@ -28,6 +28,49 @@ runtimes:
       - Publish the repository bootstrap contract and constrained-index-first lookup docs.
       - Keep spec-first entrypoints discoverable before product code is extracted.
       - Provide a repo-local validation command for future onboarding and maintenance.
+  - runtime_id: public-cli-package
+    kind: python-cli-package
+    status: active
+    files:
+      - pyproject.toml
+      - src/codex_evidence
+      - tests
+    responsibilities:
+      - Provide the public `codex-evidence` CLI and package code.
+      - Keep the implemented MVP boundary separate from future gated extensions.
+      - Pass compileall and pytest before release or migration commits.
+  - runtime_id: read-only-mcp-surface
+    kind: mcp-server
+    status: active
+    files:
+      - src/codex_evidence/mcp_server.py
+      - src/codex_evidence/_mcp
+      - tests/test_mcp_readonly.py
+    responsibilities:
+      - Expose evidence search and context tools without mutating the database.
+      - Preserve the read-only public trust boundary.
+  - runtime_id: local-runtime-registration
+    kind: local-runtime-helpers
+    status: active
+    files:
+      - src/codex_evidence/production.py
+      - src/codex_evidence/runtime_doctor.py
+      - src/codex_evidence/_runtime
+      - src/codex_evidence/_runtime_doctor
+      - docs/rollback.md
+    responsibilities:
+      - Support explicit local install, doctor, hook registration, MCP registration, and rollback.
+      - Keep runtime mutation opt-in and reversible.
+  - runtime_id: public-docs-and-specs
+    kind: docs-and-specs
+    status: active
+    files:
+      - README.md
+      - docs
+      - specs/codex-evidence-public-product
+    responsibilities:
+      - Publish public docs, release notes, roadmap, provenance, and future work entrypoints.
+      - Keep private-origin evidence sanitized.
 
 canonical_paths:
   - path_id: repository-governance-bootstrap
@@ -35,6 +78,18 @@ canonical_paths:
       - repo-governance-docs
     used_by:
       - repository-bootstrap
+  - path_id: public-product-runtime
+    chain:
+      - public-cli-package
+      - read-only-mcp-surface
+      - local-runtime-registration
+    used_by:
+      - codex-evidence-public-product
+  - path_id: public-product-docs
+    chain:
+      - public-docs-and-specs
+    used_by:
+      - codex-evidence-public-product
 
 variant_policy:
   canonical_current_docs: docs/current-state/index + docs/current-state/features
@@ -48,6 +103,7 @@ confidence_and_gaps:
     - AGENTS.md
     - docs/repository-genesis/repository-init-manifest.v1.yaml
     - docs/current-state/features/repository-bootstrap/feature-detail.v1.yaml
+    - docs/current-state/features/codex-evidence-public-product/feature-detail.v1.yaml
     - specs/README.md
     - scripts/validate_current_state_docs.py
   open_questions: []

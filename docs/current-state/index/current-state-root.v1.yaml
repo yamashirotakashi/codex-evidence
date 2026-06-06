@@ -36,6 +36,9 @@ mandatory_read_order:
   - order: 9
     document: docs/current-state/features/repository-bootstrap/feature-detail.v1.yaml
     reason: Read the repository bootstrap and spec-first governance contract.
+  - order: 10
+    document: docs/current-state/features/codex-evidence-public-product/feature-detail.v1.yaml
+    reason: Read the implemented public product boundary and canonical future work location.
 
 lookup_rules:
   start_from_user_intent:
@@ -75,9 +78,13 @@ design_decisions:
   - decision: publish current-state docs during repository genesis
     reason: Future onboarding should not need to infer whether the repository is still bootstrap-only.
   - decision: keep repository-bootstrap as the only active feature until public MVP extraction begins
-    reason: The repository currently contains governance and spec-first entrypoints, not product implementation.
+    reason: Superseded after public MVP extraction; repository-bootstrap remains the governance feature, while codex-evidence-public-product owns product implementation.
   - decision: classify the repo as cli with ui-mode na at genesis
     reason: The target product is a command-line and MCP-oriented tool with no active UI.
+  - decision: make this repository the canonical work location for codex-evidence
+    reason: The public product, release, roadmap, tests, CI, and application packet now live here.
+  - decision: migrate private-origin evidence as sanitized provenance and specs, not raw logs
+    reason: Public trust depends on preserving the local-first privacy boundary while keeping enough restart context for future development.
 
 schema_keys_reference:
   feature_manifest_required_keys:

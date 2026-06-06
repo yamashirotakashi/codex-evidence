@@ -31,9 +31,9 @@ entry_surfaces:
 implementation_variants:
   current_mode:
     description: >
-      Genesis-only CLI repository with AI operating contract, current-state index
-      docs, session templates, and spec-first entrypoint. Product implementation
-      has not yet been extracted.
+      Repository governance feature with AI operating contract, current-state
+      index docs, session templates, and spec-first entrypoint. Product
+      implementation is now owned by codex-evidence-public-product.
     status: active
 runtime_paths:
   - repository-governance-bootstrap
@@ -71,8 +71,7 @@ execution_phases:
 test_and_verification:
   known_checks:
     - python scripts/validate_current_state_docs.py --repo-root . --mode all
-  missing_checks:
-    - product implementation tests are intentionally absent before extraction
+  missing_checks: []
 confidence_and_gaps:
   evidence:
     - AGENTS.md
@@ -81,9 +80,9 @@ confidence_and_gaps:
     - specs/README.md
     - scripts/validate_current_state_docs.py
   assumptions:
-    - The first product implementation feature will be created by a later SDD phase.
-  open_questions:
-    - Public MVP source files have not yet been extracted.
+    - Product-specific future work will use codex-evidence-public-product as the feature owner.
+  open_questions: []
 related_documents:
   - specs/README.md
   - docs/session_handoffs/session_handoff_template.md
+  - docs/current-state/features/codex-evidence-public-product/feature-detail.v1.yaml

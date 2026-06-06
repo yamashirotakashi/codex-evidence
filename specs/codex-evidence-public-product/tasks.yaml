@@ -1,0 +1,70 @@
+spec_id: codex-evidence-public-product
+feature_id: codex-evidence-public-product
+profile: strict
+source_of_truth:
+  - AGENTS.md
+  - docs/current-state/index/current-state-root.v1.yaml
+  - specs/codex-evidence-public-product/requirements.md
+  - specs/codex-evidence-public-product/design.md
+current_state:
+  mode: constrained-index-first
+  gate_command: python scripts/validate_current_state_docs.py --repo-root . --mode all
+implementation_policy:
+  public_hygiene_blocks_release: true
+  read_only_mcp_boundary_required: true
+  spec_first_for_future_work: true
+phases:
+  - phase_id: P0
+    title: Public Product Extraction
+    tasks: [CEP-T00]
+    summary: Private-origin workflow was narrowed into a public product boundary.
+  - phase_id: P1
+    title: Public MVP Implementation
+    tasks: [CEP-T01]
+    summary: Local-first evidence CLI, store, ingest, MCP, hooks, tests, and docs were implemented.
+  - phase_id: P2
+    title: Public Beta Release
+    tasks: [CEP-T02]
+    summary: v0.1.0 public beta tag and GitHub Release were published.
+  - phase_id: P3
+    title: Canonical Repository Migration
+    tasks: [CEP-T03]
+    summary: Ongoing work ownership moved to this repository with sanitized provenance and current-state updates.
+tasks:
+  - task_id: CEP-T00
+    title: Public Product Extraction Scope
+    status: done
+    req_ids: [REQ-PUBLIC-SCOPE]
+    design_ids: [DEC-BOUNDARY]
+    done_definition:
+      - public MVP boundary is documented
+      - private-origin raw logs are excluded
+      - future extensions are gated by spec-first workflow
+  - task_id: CEP-T01
+    title: Public MVP Implementation
+    status: done
+    req_ids: [REQ-MVP]
+    design_ids: [DEC-RUNTIME-SURFACE]
+    done_definition:
+      - package source and tests exist
+      - CLI and read-only MCP surfaces are available
+      - public hygiene, pytest, compileall, and current-state validation pass
+  - task_id: CEP-T02
+    title: v0.1.0 Public Beta
+    status: done
+    req_ids: [REQ-RELEASE]
+    design_ids: [DEC-PUBLIC-BETA]
+    done_definition:
+      - v0.1.0 tag exists
+      - GitHub Release is published as public beta
+      - release notes and roadmap are present
+  - task_id: CEP-T03
+    title: Canonical Repository Migration
+    status: done
+    req_ids: [REQ-MIGRATION]
+    design_ids: [DEC-CANONICAL-REPO]
+    done_definition:
+      - provenance docs exist
+      - sanitized spec exists in this repository
+      - current-state docs point future work to this repository
+

@@ -15,4 +15,12 @@ capabilities:
     summary: >
       Provides the genesis contract, constrained-index-first current-state docs,
       spec-first entrypoint, and validation wrapper for future implementation.
+  - capability_id: local-first-evidence-toolkit
+    title: Local-first evidence toolkit
+    feature_ids:
+      - codex-evidence-public-product
+    summary: >
+      Provides CLI, read-only MCP, ingest, SQLite/FTS evidence storage,
+      context-pack generation, hooks, hygiene gates, dogfood proof, roadmap,
+      and public beta release records.
 

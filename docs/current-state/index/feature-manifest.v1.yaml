@@ -33,11 +33,37 @@ features:
       Tracks repository genesis, spec-first governance, constrained-index-first
       current-state publication, and the validation entrypoint used before public
       product implementation begins.
+  - feature_id: codex-evidence-public-product
+    canonical_doc: docs/current-state/features/codex-evidence-public-product/feature-detail.v1.yaml
+    detail_doc: docs/current-state/features/codex-evidence-public-product/feature-detail.v1.yaml
+    category: cli-product
+    primary_runtime: public-cli-package
+    implementation_state: implemented
+    confidence: high
+    entrypoints:
+      - README.md
+      - src/codex_evidence/cli.py
+      - src/codex_evidence/mcp_server.py
+      - docs/roadmap.md
+      - docs/provenance.md
+      - specs/codex-evidence-public-product/tasks.yaml
+    core_units:
+      - src/codex_evidence
+      - tests
+      - docs
+      - specs/codex-evidence-public-product
+    parity: public-beta
+    status: active
+    summary: >
+      Owns the implemented public local-first evidence toolkit, public beta
+      release records, sanitized migration evidence, and future product work.
 
 lookup_shortcuts:
   by_primary_runtime:
     repo-governance-docs:
       - repository-bootstrap
+    public-cli-package:
+      - codex-evidence-public-product
   migrated_from_legacy_docs: []
 
 coverage_summary:

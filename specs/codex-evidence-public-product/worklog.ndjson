@@ -1,0 +1,4 @@
+{"ts":"2026-06-06T23:30:00+09:00","task_id":"CEP-T02","event":"public_beta_candidate","summary":"Public MVP source, tests, docs, dogfood proof, hygiene gate, release checklist, and application packet were prepared in the public repository.","status":"done"}
+{"ts":"2026-06-06T23:56:00+09:00","task_id":"CEP-T02","event":"public_beta_release","summary":"v0.1.0 was tagged and published as a public beta GitHub Release.","status":"done"}
+{"ts":"2026-06-07T00:00:00+09:00","task_id":"CEP-T03","event":"canonical_repo_migration","summary":"Future development ownership moved to the public repository. Private-origin evidence was converted into sanitized provenance and spec records instead of raw session logs.","status":"done"}
+

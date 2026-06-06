@@ -9,7 +9,7 @@ classification:
   mode: constrained_index_first_healthy
   repo_type: cli
   ui_mode: na
-  implementation_stage: genesis
+  implementation_stage: public_beta
   confidence: high
 
 evidence:
@@ -17,8 +17,13 @@ evidence:
   - docs/repository-genesis/repository-init-manifest.v1.yaml
   - docs/current-state/index/current-state-root.v1.yaml
   - docs/current-state/features/repository-bootstrap/feature-detail.v1.yaml
+  - docs/current-state/features/codex-evidence-public-product/feature-detail.v1.yaml
+  - README.md
+  - docs/release-notes-v0.1.0.md
+  - docs/provenance.md
   - scripts/validate_current_state_docs.py
 
 next_actions:
-  - Create the first active public product extraction spec before implementation.
+  - Continue future codex-evidence work in this repository.
+  - Create a feature spec before promoting any future extension into the public product.
 

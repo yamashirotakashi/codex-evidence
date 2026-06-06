@@ -1,0 +1,132 @@
+metadata:
+  feature_id: codex-evidence-public-product
+  version: 1
+  status: active
+  implementation_state: implemented
+  confidence: high
+purpose:
+  summary: >
+    Tracks the implemented public `codex-evidence` product: local-first evidence
+    ingestion, SQLite/FTS search, context-pack generation, read-only MCP,
+    opt-in hooks, public hygiene, dogfood proof, roadmap, and public beta
+    release records.
+  operator_value: >
+    Future CodexCLI sessions can start from the public product boundary and
+    continue work in this repository without returning to the private origin
+    workbench.
+identity:
+  aliases:
+    - public-product
+    - public-mvp
+    - v0.1.0-public-beta
+  category: cli-product
+  owner_area: codex-evidence
+entry_surfaces:
+  human_reading:
+    - README.md
+    - docs/provenance.md
+    - docs/migration-session-memo.md
+    - docs/roadmap.md
+    - docs/release-notes-v0.1.0.md
+    - docs/release-checklist-v0.1.0.md
+    - specs/codex-evidence-public-product/requirements.md
+    - specs/codex-evidence-public-product/design.md
+  machine_entrypoints:
+    - src/codex_evidence/cli.py
+    - src/codex_evidence/mcp_server.py
+    - src/codex_evidence/hooks.py
+    - src/codex_evidence/core/store.py
+    - src/codex_evidence/ingest/adapters.py
+  validation_commands:
+    - python -m compileall -q src tests scripts
+    - python -m pytest -q
+    - python scripts/check_public_hygiene.py .
+    - python scripts/validate_current_state_docs.py --repo-root . --mode all
+implementation_variants:
+  current_mode:
+    description: >
+      Public beta CLI and read-only MCP toolkit with repo-local SQLite storage,
+      explicit local runtime registration, reversible hooks, and bounded public
+      documentation.
+    status: active
+runtime_paths:
+  - public-product-runtime
+  - public-product-docs
+contracts_and_payloads:
+  public_docs:
+    readme: README.md
+    privacy: docs/privacy.md
+    rollback: docs/rollback.md
+    architecture: docs/architecture.md
+    roadmap: docs/roadmap.md
+    provenance: docs/provenance.md
+  release:
+    tag: v0.1.0
+    release_notes: docs/release-notes-v0.1.0.md
+    checklist: docs/release-checklist-v0.1.0.md
+  specs:
+    requirements: specs/codex-evidence-public-product/requirements.md
+    design: specs/codex-evidence-public-product/design.md
+    tasks: specs/codex-evidence-public-product/tasks.yaml
+    traceability: specs/codex-evidence-public-product/traceability.csv
+    worklog: specs/codex-evidence-public-product/worklog.ndjson
+touchpoints:
+  by_change:
+    cli_and_runtime:
+      - src/codex_evidence/cli.py
+      - src/codex_evidence/_cli
+      - src/codex_evidence/production.py
+      - src/codex_evidence/runtime_doctor.py
+      - src/codex_evidence/runtime_resilience.py
+    evidence_store:
+      - src/codex_evidence/core
+      - src/codex_evidence/evidence_card.py
+      - src/codex_evidence/ingest
+    mcp_and_hooks:
+      - src/codex_evidence/mcp_server.py
+      - src/codex_evidence/_mcp
+      - src/codex_evidence/hooks.py
+      - src/codex_evidence/_hooks
+    public_docs:
+      - README.md
+      - docs
+      - specs/codex-evidence-public-product
+    tests:
+      - tests
+state_and_storage:
+  persistent_storage:
+    - .codex-evidence/evidence.sqlite3
+  generated_state:
+    - .codex-evidence/*
+    - examples/dogfood-ingest.json
+    - examples/dogfood-context-pack.json
+execution_phases:
+  - phase_id: public-mvp-extraction
+    summary: Private-origin workflow was narrowed into a public MVP.
+  - phase_id: public-beta-release
+    summary: v0.1.0 public beta tag and GitHub Release were published.
+  - phase_id: canonical-repo-migration
+    summary: Ongoing work ownership moved into this repository with sanitized provenance.
+test_and_verification:
+  known_checks:
+    - python -m compileall -q src tests scripts
+    - python -m pytest -q
+    - python scripts/check_public_hygiene.py .
+    - python scripts/validate_current_state_docs.py --repo-root . --mode all
+  missing_checks: []
+confidence_and_gaps:
+  evidence:
+    - README.md
+    - docs/release-notes-v0.1.0.md
+    - docs/release-checklist-v0.1.0.md
+    - docs/dogfood-proof.md
+    - docs/provenance.md
+    - specs/codex-evidence-public-product/tasks.yaml
+  assumptions: []
+  open_questions:
+    - Future extension candidates require new specs before implementation.
+related_documents:
+  - docs/roadmap.md
+  - docs/provenance.md
+  - docs/migration-session-memo.md
+  - specs/codex-evidence-public-product/requirements.md

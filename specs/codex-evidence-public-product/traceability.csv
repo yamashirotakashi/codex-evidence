@@ -1,0 +1,6 @@
+task_id,req_ids,design_ids,artifact,verification,status,notes
+CEP-T00,REQ-PUBLIC-SCOPE,DEC-BOUNDARY,docs/provenance.md;specs/codex-evidence-public-product,public hygiene;current-state validator,done,Public scope extracted from private-origin workflow without raw private logs.
+CEP-T01,REQ-MVP,DEC-RUNTIME-SURFACE,src;tests;README.md;docs,pytest;compileall;public hygiene,done,Public MVP source and tests are already present in this repository.
+CEP-T02,REQ-RELEASE,DEC-PUBLIC-BETA,docs/release-notes-v0.1.0.md;CHANGELOG.md;GitHub Release,tag check;release URL,done,v0.1.0 public beta published.
+CEP-T03,REQ-MIGRATION,DEC-CANONICAL-REPO,docs/migration-session-memo.md;current-state docs,validator;hygiene,done,Ongoing CodexCLI work now belongs in this repository.
+
