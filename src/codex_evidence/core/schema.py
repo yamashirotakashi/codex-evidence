@@ -342,6 +342,8 @@ def rebuild_derived_indexes(db_path: str | Path) -> None:
             raise RuntimeError(
                 f"FTS rebuild drift: evidence_event={event_count}, event_fts={fts_count}"
             )
+        conn.commit()
+        list(conn.execute("PRAGMA wal_checkpoint(TRUNCATE)"))
 
 
 def index_ingest_run_events(db_path: str | Path, ingest_run_id: str) -> None:
