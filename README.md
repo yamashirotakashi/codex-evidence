@@ -4,6 +4,10 @@ Local-first evidence toolkit for Codex CLI maintainers.
 
 `codex-evidence` ingests local Codex and repository artifacts into a repo-local SQLite store, then exposes searchable evidence and compact restart context through a CLI and read-only MCP tools. It is built for maintainers who need to resume long-running OSS work without re-discovering the same context every session.
 
+## Origin
+
+This project was extracted from a private local session-memo workflow and reshaped with Codex into a public, reusable maintainer tool. The initial MVP, public hygiene gate, dogfood proof, and release/application documents were developed through Codex-assisted specification, implementation, and verification.
+
 ## Quickstart
 
 ```powershell
