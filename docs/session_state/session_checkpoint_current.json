@@ -1,0 +1,14 @@
+{
+  "schema_version": "session_checkpoint.v1",
+  "updated_at": "2026-06-07T00:00:00+09:00",
+  "summary": "Roadmap-aligned next-session execution plan created for public-beta-hardening.",
+  "in_progress": [
+    "PBH-T00 baseline validation is the next executable task."
+  ],
+  "risks": [
+    "Do not skip Red evidence before PBH-T01 edits.",
+    "Do not broaden into future extension code during v0.1.x hardening."
+  ],
+  "next_action": "Run PBH-T00 baseline commands, then start PBH-T01 first-run guidance."
+}
+

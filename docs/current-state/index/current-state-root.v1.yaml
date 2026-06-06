@@ -39,6 +39,9 @@ mandatory_read_order:
   - order: 10
     document: docs/current-state/features/codex-evidence-public-product/feature-detail.v1.yaml
     reason: Read the implemented public product boundary and canonical future work location.
+  - order: 11
+    document: docs/current-state/features/public-beta-hardening/feature-detail.v1.yaml
+    reason: Read the next planned roadmap-aligned implementation feature.
 
 lookup_rules:
   start_from_user_intent:
@@ -85,6 +88,8 @@ design_decisions:
     reason: The public product, release, roadmap, tests, CI, and application packet now live here.
   - decision: migrate private-origin evidence as sanitized provenance and specs, not raw logs
     reason: Public trust depends on preserving the local-first privacy boundary while keeping enough restart context for future development.
+  - decision: make public-beta-hardening the next planned implementation feature
+    reason: v0.1.x hardening is the safest next step before evidence-quality and workflow-pack expansion.
 
 schema_keys_reference:
   feature_manifest_required_keys:

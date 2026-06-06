@@ -91,9 +91,28 @@ touchpoints:
       - SDD-TDD-EDD continuity
     features:
       - codex-evidence-public-product
+  - touchpoint_id: public-beta-hardening-plan
+    files:
+      - docs/development-plan.md
+      - docs/current-state/features/public-beta-hardening/feature-detail.v1.yaml
+      - specs/public-beta-hardening/requirements.md
+      - specs/public-beta-hardening/design.md
+      - specs/public-beta-hardening/tasks.yaml
+      - specs/public-beta-hardening/traceability.csv
+      - specs/public-beta-hardening/worklog.ndjson
+      - docs/session_handoffs/session_handoff_latest.md
+      - docs/session_state/session_current.json
+    concerns:
+      - roadmap execution
+      - next-session handoff
+      - public beta hardening
+      - SDD-TDD-EDD planning
+    features:
+      - public-beta-hardening
 
 reverse_lookup_notes:
   - Future product work should start from codex-evidence-public-product.
+  - The next planned implementation feature is public-beta-hardening.
   - repository-bootstrap remains only the governance and genesis feature.
 
 confidence_and_gaps:

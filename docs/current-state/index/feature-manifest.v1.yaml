@@ -57,6 +57,31 @@ features:
     summary: >
       Owns the implemented public local-first evidence toolkit, public beta
       release records, sanitized migration evidence, and future product work.
+  - feature_id: public-beta-hardening
+    canonical_doc: docs/current-state/features/public-beta-hardening/feature-detail.v1.yaml
+    detail_doc: docs/current-state/features/public-beta-hardening/feature-detail.v1.yaml
+    category: cli-product-hardening
+    primary_runtime: public-cli-package
+    implementation_state: planned
+    confidence: high
+    entrypoints:
+      - docs/development-plan.md
+      - docs/roadmap.md
+      - specs/public-beta-hardening/tasks.yaml
+      - docs/session_handoffs/session_handoff_latest.md
+      - docs/session_state/session_current.json
+    core_units:
+      - README.md
+      - docs/dogfood-proof.md
+      - scripts/check_public_hygiene.py
+      - src/codex_evidence/runtime_doctor.py
+      - .github/workflows/ci.yml
+      - specs/public-beta-hardening
+    parity: planned-v0.1.x-hardening
+    status: active
+    summary: >
+      Owns the next roadmap-aligned v0.1.x hardening slice and provides the
+      next-session execution entrypoint.
 
 lookup_shortcuts:
   by_primary_runtime:
@@ -64,6 +89,7 @@ lookup_shortcuts:
       - repository-bootstrap
     public-cli-package:
       - codex-evidence-public-product
+      - public-beta-hardening
   migrated_from_legacy_docs: []
 
 coverage_summary:

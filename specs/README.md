@@ -24,3 +24,9 @@ Before implementation, use:
 
 Future `codex-evidence` work should start in this repository. Private-origin
 experiments must be re-specified here before they become public product work.
+
+## Next Planned Feature
+
+- FeatureID: `public-beta-hardening`
+- Start: `specs/public-beta-hardening/tasks.yaml`
+- First task: `PBH-T00`

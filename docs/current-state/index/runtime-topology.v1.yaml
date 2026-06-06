@@ -71,6 +71,7 @@ runtimes:
     responsibilities:
       - Publish public docs, release notes, roadmap, provenance, and future work entrypoints.
       - Keep private-origin evidence sanitized.
+      - Keep next-session handoff and feature specs discoverable.
 
 canonical_paths:
   - path_id: repository-governance-bootstrap

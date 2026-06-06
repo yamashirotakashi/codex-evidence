@@ -1,0 +1,105 @@
+spec_id: public-beta-hardening
+feature_id: public-beta-hardening
+profile: strict
+source_of_truth:
+  - AGENTS.md
+  - docs/roadmap.md
+  - docs/development-plan.md
+  - docs/current-state/features/public-beta-hardening/feature-detail.v1.yaml
+  - specs/public-beta-hardening/requirements.md
+  - specs/public-beta-hardening/design.md
+current_state:
+  mode: constrained-index-first
+  gate_command: python scripts/validate_current_state_docs.py --repo-root . --mode all
+implementation_policy:
+  failing_tests_first: true
+  public_hygiene_blocks_release: true
+  read_only_mcp_boundary_required: true
+  no_private_origin_code_import_without_spec: true
+phases:
+  - phase_id: PBH-P0
+    title: Baseline and Spec Freeze
+    tasks: [PBH-T00]
+    summary: Confirm current public beta health and freeze the hardening scope.
+  - phase_id: PBH-P1
+    title: First-Run Guidance
+    tasks: [PBH-T01]
+    summary: Improve README and docs so a maintainer can get the first useful result quickly.
+  - phase_id: PBH-P2
+    title: Dogfood Reproducibility
+    tasks: [PBH-T02]
+    summary: Make public dogfood proof easier to rerun with repo-local fixtures.
+  - phase_id: PBH-P3
+    title: Hygiene Gate Hardening
+    tasks: [PBH-T03]
+    summary: Strengthen hygiene checks and tests without broad allowlists.
+  - phase_id: PBH-P4
+    title: Runtime UX Clarification
+    tasks: [PBH-T04]
+    summary: Clarify doctor, install, registration, and rollback output and docs.
+  - phase_id: PBH-P5
+    title: CI and Release Guard Alignment
+    tasks: [PBH-T05]
+    summary: Keep README, CI, release notes, and validation commands aligned.
+tasks:
+  - task_id: PBH-T00
+    title: Baseline and Spec Freeze
+    status: planned
+    req_ids: [PBH-REQ-001, PBH-REQ-005, PBH-REQ-006]
+    design_ids: [PBH-DEC-001]
+    done_definition:
+      - current git status is understood
+      - pytest, compileall, hygiene, and current-state validator pass or failures are captured as Red evidence
+      - phase order remains scoped to v0.1.x hardening
+    validation:
+      - git status --short
+      - python -m compileall -q src tests scripts
+      - python -m pytest -q
+      - python scripts/check_public_hygiene.py .
+      - python scripts/validate_current_state_docs.py --repo-root . --mode all
+  - task_id: PBH-T01
+    title: First-Run Guidance
+    status: planned
+    req_ids: [PBH-REQ-001]
+    design_ids: [PBH-DEC-002]
+    done_definition:
+      - README quickstart distinguishes public fixture proof from private local ingest
+      - first-run path has expected command output or linked proof
+      - docs avoid overclaiming automation
+  - task_id: PBH-T02
+    title: Dogfood Reproducibility
+    status: planned
+    req_ids: [PBH-REQ-002, PBH-REQ-006]
+    design_ids: [PBH-DEC-003]
+    done_definition:
+      - dogfood proof can be rerun with public repo-local fixtures
+      - proof command excludes private sessions/logs by default
+      - generated examples remain sanitized
+  - task_id: PBH-T03
+    title: Hygiene Gate Hardening
+    status: planned
+    req_ids: [PBH-REQ-003, PBH-REQ-006]
+    design_ids: [PBH-DEC-004]
+    done_definition:
+      - hygiene checker has focused tests for new patterns
+      - synthetic fixtures remain explicitly documented
+      - violation output is understandable
+  - task_id: PBH-T04
+    title: Runtime UX Clarification
+    status: planned
+    req_ids: [PBH-REQ-004, PBH-REQ-006]
+    design_ids: [PBH-DEC-005]
+    done_definition:
+      - doctor output reports checked surfaces and next action
+      - install/register/rollback docs match current command behavior
+      - doctor remains non-mutating
+  - task_id: PBH-T05
+    title: CI and Release Guard Alignment
+    status: planned
+    req_ids: [PBH-REQ-005]
+    design_ids: [PBH-DEC-006]
+    done_definition:
+      - README, CI, release docs, and local validation commands are aligned
+      - final gates pass
+      - current-state and handoff are updated for the next feature
+

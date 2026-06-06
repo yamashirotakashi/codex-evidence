@@ -75,6 +75,7 @@ python scripts/validate_current_state_docs.py --repo-root . --mode all
 - [Architecture](docs/architecture.md)
 - [Provenance](docs/provenance.md)
 - [Roadmap](docs/roadmap.md)
+- [Development Plan](docs/development-plan.md)
 - [Migration From Private Workbench](docs/migration-session-memo.md)
 - [Testing](docs/testing.md)
 - [Dogfood Proof](docs/dogfood-proof.md)

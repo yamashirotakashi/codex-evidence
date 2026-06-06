@@ -19,6 +19,7 @@ capabilities:
     title: Local-first evidence toolkit
     feature_ids:
       - codex-evidence-public-product
+      - public-beta-hardening
     summary: >
       Provides CLI, read-only MCP, ingest, SQLite/FTS evidence storage,
       context-pack generation, hooks, hygiene gates, dogfood proof, roadmap,

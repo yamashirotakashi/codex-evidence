@@ -1,0 +1,8 @@
+task_id,req_ids,design_ids,artifact,verification,status,notes
+PBH-T00,PBH-REQ-001;PBH-REQ-005;PBH-REQ-006,PBH-DEC-001,specs/public-beta-hardening,baseline gates,planned,Start here next session.
+PBH-T01,PBH-REQ-001,PBH-DEC-002,README.md;docs,docs review;hygiene,planned,Improve first-run guidance before code breadth.
+PBH-T02,PBH-REQ-002;PBH-REQ-006,PBH-DEC-003,docs/dogfood-proof.md;examples,proof rerun;hygiene,planned,Keep proof public and repo-local.
+PBH-T03,PBH-REQ-003;PBH-REQ-006,scripts/check_public_hygiene.py;tests,hygiene tests;hygiene command,planned,Expand patterns with tests.
+PBH-T04,PBH-REQ-004;PBH-REQ-006,src/codex_evidence/runtime_doctor.py;docs/rollback.md,pytest;manual CLI smoke,planned,Clarify status and next action output.
+PBH-T05,PBH-REQ-005,PBH-DEC-006,README.md;.github/workflows/ci.yml;docs,pytest;compileall;validator,planned,Close v0.1.x hardening slice.
+

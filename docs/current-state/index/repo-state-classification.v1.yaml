@@ -24,6 +24,7 @@ evidence:
   - scripts/validate_current_state_docs.py
 
 next_actions:
+  - Start public-beta-hardening with PBH-T00 baseline validation.
   - Continue future codex-evidence work in this repository.
   - Create a feature spec before promoting any future extension into the public product.
 

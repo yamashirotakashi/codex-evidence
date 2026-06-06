@@ -1,0 +1,115 @@
+metadata:
+  feature_id: public-beta-hardening
+  version: 1
+  status: active
+  implementation_state: planned
+  confidence: high
+purpose:
+  summary: >
+    Tracks the next planned v0.1.x hardening slice for the public beta:
+    first-run guidance, dogfood reproducibility, hygiene hardening, runtime UX
+    clarification, and validation alignment.
+  operator_value: >
+    Future sessions can resume directly from this feature instead of deciding
+    from the broad roadmap each time.
+identity:
+  aliases:
+    - v0.1.x-hardening
+    - beta-hardening
+  category: cli-product-hardening
+  owner_area: codex-evidence
+entry_surfaces:
+  human_reading:
+    - docs/development-plan.md
+    - docs/roadmap.md
+    - specs/public-beta-hardening/requirements.md
+    - specs/public-beta-hardening/design.md
+    - specs/public-beta-hardening/tasks.yaml
+  machine_entrypoints:
+    - README.md
+    - docs/dogfood-proof.md
+    - scripts/check_public_hygiene.py
+    - src/codex_evidence/runtime_doctor.py
+    - .github/workflows/ci.yml
+  validation_commands:
+    - git status --short
+    - python -m compileall -q src tests scripts
+    - python -m pytest -q
+    - python scripts/check_public_hygiene.py .
+    - python scripts/validate_current_state_docs.py --repo-root . --mode all
+implementation_variants:
+  current_mode:
+    description: >
+      Planned v0.1.x hardening feature. No code changes have started yet.
+    status: planned
+runtime_paths:
+  - public-product-runtime
+  - public-product-docs
+contracts_and_payloads:
+  specs:
+    requirements: specs/public-beta-hardening/requirements.md
+    design: specs/public-beta-hardening/design.md
+    tasks: specs/public-beta-hardening/tasks.yaml
+    traceability: specs/public-beta-hardening/traceability.csv
+    worklog: specs/public-beta-hardening/worklog.ndjson
+  planning_docs:
+    development_plan: docs/development-plan.md
+    roadmap: docs/roadmap.md
+touchpoints:
+  by_change:
+    first_run_docs:
+      - README.md
+      - docs/testing.md
+      - docs/dogfood-proof.md
+    dogfood:
+      - docs/dogfood-proof.md
+      - examples
+    hygiene:
+      - scripts/check_public_hygiene.py
+      - .hygiene-ignore
+      - tests
+    runtime_ux:
+      - src/codex_evidence/runtime_doctor.py
+      - src/codex_evidence/_runtime_doctor
+      - docs/rollback.md
+    validation_alignment:
+      - README.md
+      - .github/workflows/ci.yml
+      - docs/release-notes-v0.1.0.md
+state_and_storage:
+  persistent_storage: []
+  generated_state:
+    - docs/session_handoffs/session_handoff_latest.md
+    - docs/session_state/session_current.json
+execution_phases:
+  - phase_id: PBH-P0
+    summary: Baseline and spec freeze.
+  - phase_id: PBH-P1
+    summary: First-run guidance.
+  - phase_id: PBH-P2
+    summary: Dogfood reproducibility.
+  - phase_id: PBH-P3
+    summary: Hygiene gate hardening.
+  - phase_id: PBH-P4
+    summary: Runtime UX clarification.
+  - phase_id: PBH-P5
+    summary: CI and release guard alignment.
+test_and_verification:
+  known_checks:
+    - python -m compileall -q src tests scripts
+    - python -m pytest -q
+    - python scripts/check_public_hygiene.py .
+    - python scripts/validate_current_state_docs.py --repo-root . --mode all
+  missing_checks:
+    - PBH-T00 baseline has not yet been executed in a follow-up implementation session.
+confidence_and_gaps:
+  evidence:
+    - docs/roadmap.md
+    - docs/development-plan.md
+    - specs/public-beta-hardening/tasks.yaml
+  assumptions: []
+  open_questions:
+    - Whether PBH-T02 should add a proof runner script or only tighten existing proof docs.
+related_documents:
+  - docs/development-plan.md
+  - specs/public-beta-hardening/tasks.yaml
