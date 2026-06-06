@@ -1,7 +1,4 @@
-from pathlib import Path
-
-import yaml
-
+from codex_evidence.ingest import run_adapters
 from codex_evidence.core.store import (
     EvidenceEventRecord,
     EvidenceStore,
@@ -171,24 +168,61 @@ def test_store_warning_and_quarantine_records_are_idempotent(tmp_path):
     assert store.list_quarantine("run_1")[0].redaction_state == "redacted"
 
 
-def test_cel_t02_requires_store_managed_adapter_contract():
-    tasks_path = Path("specs/codex-evidence-lifecycle/tasks.yaml")
-    data = yaml.safe_load(tasks_path.read_text(encoding="utf-8"))
-    task = next(item for item in data["tasks"] if item["task_id"] == "CEL-T02")
+def test_run_adapters_owns_run_boundary_sequence_and_adapter_warnings(tmp_path):
+    db_path = tmp_path / "evidence.sqlite"
+    store = EvidenceStore(db_path)
+    store.initialize()
 
-    in_scope = "\n".join(task["scope"]["in"])
-    out_of_scope = "\n".join(task["out_of_scope"])
-    done_definition = "\n".join(task["done_definition"])
+    class RecordingAdapter:
+        name = "recording"
 
-    assert "store-managed ingest_run boundaries" in in_scope
-    assert "store-managed observed_sequence allocation" in in_scope
-    assert "warnings and quarantine entries through the store facade" in in_scope
-    assert "store.start_ingest_run once per ingest invocation" in in_scope
-    assert "single-writer ingest" in in_scope
-    assert 'raw_excerpt="" and structured line/reason/payload' in in_scope
-    assert "adapter-local warning/quarantine persistence" in out_of_scope
-    assert "adapter-local observed_sequence counters" in out_of_scope
-    assert "parallel ingest writers" in out_of_scope
-    assert "unredacted quarantine raw_excerpt" in out_of_scope
-    assert "store-managed quarantine evidence" in done_definition
-    assert "unredacted malformed input is never stored" in done_definition
+        def ingest(self, store, ingest_run_id):
+            observed_sequence = store.next_observed_sequence(ingest_run_id)
+            store.append_event(
+                source_ref=SourceRefRecord(
+                    source_ref_id="src_managed",
+                    source_kind="test",
+                    normalized_path="fixture.md",
+                    content_hash="hash1",
+                ),
+                artifact=None,
+                event=EvidenceEventRecord(
+                    event_id="evt_managed",
+                    ingest_run_id=ingest_run_id,
+                    source_ref_id="src_managed",
+                    authority_class="runtime",
+                    event_kind="fixture",
+                    redaction_state="clean",
+                    content_hash="hash1",
+                    observed_sequence=observed_sequence,
+                    content_text="managed event",
+                ),
+            )
+            return type("AdapterResult", (), {"event_count": 1})()
+
+    class FailingAdapter:
+        name = "failing"
+
+        def ingest(self, store, ingest_run_id):
+            raise RuntimeError("adapter failed")
+
+    result = run_adapters(
+        store=store,
+        ingest_run=IngestRunRecord(
+            ingest_run_id="run_managed",
+            source_profile="public-profile",
+            observed_at="2026-04-25T23:30:00+09:00",
+        ),
+        adapters=[RecordingAdapter(), FailingAdapter()],
+    )
+
+    run = store.get_ingest_run("run_managed")
+    warnings = store.list_warnings("run_managed")
+
+    assert result.event_count == 1
+    assert result.warning_count == 1
+    assert store.next_observed_sequence("run_managed") == 1
+    assert run.status == "completed_with_warnings"
+    assert warnings[0].source_kind == "failing"
+    assert warnings[0].warning_code == "adapter_error"
+    assert "RuntimeError: adapter failed" in warnings[0].message

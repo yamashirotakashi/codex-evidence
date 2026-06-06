@@ -59,6 +59,7 @@ Synthetic secret-like fixtures are documented in `.hygiene-ignore`; unallowliste
 ## Development Checks
 
 ```powershell
+python -m pip install -e ".[dev]"
 python -m compileall -q src tests scripts
 python -m pytest -q
 python scripts/check_public_hygiene.py .
@@ -68,6 +69,7 @@ python scripts/validate_current_state_docs.py --repo-root . --mode all
 ## Project Docs
 
 - [Architecture](docs/architecture.md)
+- [Testing](docs/testing.md)
 - [Privacy](docs/privacy.md)
 - [Rollback](docs/rollback.md)
 - [Security](SECURITY.md)

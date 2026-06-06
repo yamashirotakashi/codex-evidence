@@ -195,7 +195,7 @@ def test_cutoff_event_keeps_next_start(tmp_path):
         decision="pause after P4",
         risks=["lifecycle skill unavailable"],
         validation=["python -m pytest => 31 passed"],
-        next_start="Run P4 phase audit, then start CEL-T05.",
+        next_start="Review the phase audit, then start the next public MVP task.",
         evidence_refs=[{"source_ref_id": "src_restart"}],
     )
 
@@ -205,5 +205,5 @@ def test_cutoff_event_keeps_next_start(tmp_path):
     assert event["decision"] == "pause after P4"
     assert event["risks"] == ["lifecycle skill unavailable"]
     assert event["validation"] == ["python -m pytest => 31 passed"]
-    assert event["next_start"] == "Run P4 phase audit, then start CEL-T05."
+    assert event["next_start"] == "Review the phase audit, then start the next public MVP task."
     assert event["evidence_refs"] == [{"source_ref_id": "src_restart"}]

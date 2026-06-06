@@ -9,6 +9,11 @@ dependencies = [
   "PyYAML>=6,<7",
 ]
 
+[project.optional-dependencies]
+dev = [
+  "pytest>=8,<9",
+]
+
 [project.scripts]
 codex-evidence = "codex_evidence.cli:main"
 codex-evidence-hook = "codex_evidence.hooks:main"

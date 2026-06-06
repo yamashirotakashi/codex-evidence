@@ -1,9 +1,5 @@
-from pathlib import Path
-
-import yaml
-
 from codex_evidence.core.store import SearchQueryResult, SearchResult
-from codex_evidence.evidence_card import build_evidence_card
+from codex_evidence.evidence_card import EVIDENCE_CARD_SCHEMA_VERSION, build_evidence_card
 
 
 def test_evidence_card_infers_repo_from_windows_docs_path():
@@ -26,20 +22,23 @@ def test_evidence_card_infers_repo_from_windows_docs_path():
     assert card["repo"] == "c:/users/example/dev/sample-repo"
 
 
-def test_cel_t05_requires_shared_card_builder_and_readonly_side_effect_ban():
-    data = yaml.safe_load(
-        Path("specs/codex-evidence-lifecycle/tasks.yaml").read_text(encoding="utf-8")
-    )
-    task = next(item for item in data["tasks"] if item["task_id"] == "CEL-T05")
+def test_evidence_card_empty_result_contract_is_public_and_side_effect_free(tmp_path):
+    db_path = tmp_path / "missing.sqlite3"
 
-    in_scope = "\n".join(task["scope"]["in"])
-    out_of_scope = "\n".join(task["out_of_scope"])
-    done_definition = "\n".join(task["done_definition"])
+    card = build_evidence_card("nothing here", SearchQueryResult(results=[]))
 
-    assert "shared evidence_card.v1 builder" in in_scope
-    assert "no rebuild" in out_of_scope
-    assert "no migration" in out_of_scope
-    assert "no ingest_run creation" in out_of_scope
-    assert "no redaction job" in out_of_scope
-    assert "same warning code contract as CLI context-pack" in done_definition
+    assert card["schema_version"] == EVIDENCE_CARD_SCHEMA_VERSION
+    assert card["summary"] == "Evidence card for 'nothing here': 0 result(s)"
+    assert card["repo"] == ""
+    assert card["authority"] == "unknown"
+    assert card["confidence"] == 0.0
+    assert card["source_refs"] == []
+    assert card["current_relevance"] == []
+    assert card["warnings"] == [
+        {
+            "code": "search_no_results",
+            "message": "No evidence matched the query.",
+        }
+    ]
+    assert not db_path.exists()
 
