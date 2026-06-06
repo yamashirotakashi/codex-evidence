@@ -21,7 +21,6 @@ runtimes:
       - docs/current-state/index/touchpoint-index.v1.yaml
       - docs/current-state/index/capability-tree.v1.yaml
       - docs/current-state/features/repository-bootstrap/feature-detail.v1.yaml
-      - .serena/onboarding.md
       - specs/README.md
       - scripts/validate_current_state_docs.py
     responsibilities:
@@ -96,7 +95,7 @@ variant_policy:
   canonical_current_docs: docs/current-state/index + docs/current-state/features
   retained_supporting_docs: []
   generated_views:
-    - .serena/onboarding.md
+    - local-only ignored session-cutoff outputs under .serena/, docs/session_handoffs/, and docs/session_state/
 
 confidence_and_gaps:
   confidence: high

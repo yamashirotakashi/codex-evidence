@@ -9,3 +9,17 @@ htmlcov/
 dist/
 build/
 *.egg-info/
+
+# Local session-cutoff / handoff state.
+# These files are generated per workstation and may contain absolute paths.
+.serena/onboarding.md
+docs/session_handoffs/session_handoff_latest.md
+docs/session_handoffs/session_handoff_*.md
+docs/session_handoffs/session_portable_latest.md
+docs/session_handoffs/session_portable_*.md
+docs/session_handoffs/session_checkpoint_latest.md
+docs/session_state/session_current.json
+docs/session_state/session_checkpoint_current.json
+docs/session_state/session_checkpoint_distilled.json
+docs/session_state/restart_packet_latest.json
+docs/session_state/ledger/

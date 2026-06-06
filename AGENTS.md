@@ -9,9 +9,8 @@
 - 1. `AGENTS.md`
 - 2. `docs/repository-genesis/repository-init-manifest.v1.yaml`
 - 3. `docs/current-state/index/current-state-root.v1.yaml`
-- 4. `.serena/onboarding.md`
-- 5. `specs/README.md`
-- 6. `docs/session_handoffs/session_handoff_template.md`
+- 4. `specs/README.md`
+- 5. `docs/session_handoffs/session_handoff_template.md`
 
 ## Genesis Rules
 - Work is spec-first by default.
@@ -26,6 +25,7 @@
 ## Session / Handoff
 - `03-session-switch-handoff` owns canonical lifecycle maintenance after onboarding.
 - `session-checkpoint` and `session-cutoff` remain facade skills only.
+- Generated session views, restart packets, portable memos, and ledger shards are local-only and ignored by git.
 
 ## Next Skill Hints
 - `repo-onboarding-rules`

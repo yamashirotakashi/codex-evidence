@@ -19,7 +19,6 @@ features:
       - AGENTS.md
       - docs/repository-genesis/repository-init-manifest.v1.yaml
       - docs/current-state/index/current-state-root.v1.yaml
-      - .serena/onboarding.md
       - specs/README.md
       - scripts/validate_current_state_docs.py
     core_units:
@@ -68,8 +67,6 @@ features:
       - docs/development-plan.md
       - docs/roadmap.md
       - specs/public-beta-hardening/tasks.yaml
-      - docs/session_handoffs/session_handoff_latest.md
-      - docs/session_state/session_current.json
     core_units:
       - README.md
       - docs/dogfood-proof.md

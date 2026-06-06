@@ -79,8 +79,7 @@ touchpoints:
 state_and_storage:
   persistent_storage: []
   generated_state:
-    - docs/session_handoffs/session_handoff_latest.md
-    - docs/session_state/session_current.json
+    - local-only ignored session-cutoff outputs under docs/session_handoffs/ and docs/session_state/
 execution_phases:
   - phase_id: PBH-P0
     summary: Baseline and spec freeze.

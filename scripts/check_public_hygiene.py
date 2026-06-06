@@ -3,6 +3,7 @@ from __future__ import annotations
 import fnmatch
 import json
 import re
+import subprocess
 import sys
 from dataclasses import dataclass
 from pathlib import Path
@@ -38,7 +39,8 @@ def main(argv: list[str] | None = None) -> int:
     violations: list[dict[str, object]] = []
     allowed: list[dict[str, object]] = []
 
-    for path in _iter_text_files(root):
+    ignored_paths = _git_ignored_paths(root)
+    for path in _iter_text_files(root, ignored_paths=ignored_paths):
         rel = path.relative_to(root).as_posix()
         text = path.read_text(encoding="utf-8", errors="replace")
         for line_number, line in enumerate(text.splitlines(), start=1):
@@ -69,9 +71,11 @@ def main(argv: list[str] | None = None) -> int:
     return 0 if not violations else 1
 
 
-def _iter_text_files(root: Path):
+def _iter_text_files(root: Path, *, ignored_paths: set[Path]):
     for path in sorted(root.rglob("*")):
         if not path.is_file():
+            continue
+        if path.resolve() in ignored_paths:
             continue
         rel_parts = set(path.relative_to(root).parts)
         if rel_parts & SKIP_DIRS:
@@ -83,6 +87,34 @@ def _iter_text_files(root: Path):
         except UnicodeDecodeError:
             continue
         yield path
+
+
+def _git_ignored_paths(root: Path) -> set[Path]:
+    try:
+        result = subprocess.run(
+            [
+                "git",
+                "-C",
+                str(root),
+                "ls-files",
+                "--others",
+                "--ignored",
+                "--exclude-standard",
+                "-z",
+            ],
+            check=False,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.DEVNULL,
+        )
+    except OSError:
+        return set()
+    if result.returncode != 0:
+        return set()
+    return {
+        (root / raw.decode("utf-8", errors="replace")).resolve()
+        for raw in result.stdout.split(b"\0")
+        if raw
+    }
 
 
 def _load_ignore_rules(path: Path) -> list[IgnoreRule]:

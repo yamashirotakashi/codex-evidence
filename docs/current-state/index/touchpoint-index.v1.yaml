@@ -14,7 +14,6 @@ touchpoints:
       - docs/repository-genesis/repository-init-manifest.v1.yaml
       - docs/current-state/index/current-state-root.v1.yaml
       - docs/current-state/features/repository-bootstrap/feature-detail.v1.yaml
-      - .serena/onboarding.md
     concerns:
       - repository bootstrap governance
       - current-state onboarding entrypoint
@@ -100,8 +99,6 @@ touchpoints:
       - specs/public-beta-hardening/tasks.yaml
       - specs/public-beta-hardening/traceability.csv
       - specs/public-beta-hardening/worklog.ndjson
-      - docs/session_handoffs/session_handoff_latest.md
-      - docs/session_state/session_current.json
     concerns:
       - roadmap execution
       - next-session handoff
