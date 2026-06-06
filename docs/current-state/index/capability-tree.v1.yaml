@@ -1,0 +1,17 @@
+metadata:
+  document_id: codex-evidence-capability-tree-v1
+  version: 1
+  status: active
+  canonical_name: codex-evidence-capability-tree
+  purpose: >
+    Optional capability grouping for constrained-index-first docs.
+  repository_root: C:/Users/tky99/dev/codex-evidence
+
+capabilities:
+  - capability_id: repository-governance
+    title: Repository governance and onboarding
+    feature_ids:
+      - repository-bootstrap
+    summary: >
+      Provides the genesis contract, constrained-index-first current-state docs,
+      spec-first entrypoint, and validation wrapper for future implementation.

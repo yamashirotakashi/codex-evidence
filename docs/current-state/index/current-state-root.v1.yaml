@@ -1,0 +1,111 @@
+metadata:
+  document_id: codex-evidence-current-state-root-v1
+  version: 1
+  status: active
+  canonical_name: codex-evidence-current-state-root
+  purpose: >
+    Top-level constrained-index-first root for onboarding and future AI sessions
+    in the codex-evidence repository.
+  repository_root: C:/Users/tky99/dev/codex-evidence
+
+mandatory_read_order:
+  - order: 1
+    document: AGENTS.md
+    reason: Confirm the repo-local AI operating contract.
+  - order: 2
+    document: docs/repository-genesis/repository-init-manifest.v1.yaml
+    reason: Confirm the day-zero genesis classification.
+  - order: 3
+    document: docs/current-state/index/current-state-root.v1.yaml
+    reason: Confirm canonical read order and constrained-index-first lookup rules.
+  - order: 4
+    document: docs/current-state/index/documentation-system-method.v1.yaml
+    reason: Confirm the feature-detail contract and confidence rules.
+  - order: 5
+    document: docs/current-state/index/feature-manifest.v1.yaml
+    reason: Resolve feature_id to canonical feature detail documents.
+  - order: 6
+    document: docs/current-state/index/runtime-topology.v1.yaml
+    reason: Resolve runtime path identifiers before interpreting feature runtime paths.
+  - order: 7
+    document: docs/current-state/index/touchpoint-index.v1.yaml
+    reason: Reverse-map files and concerns back to owning features.
+  - order: 8
+    document: docs/current-state/index/capability-tree.v1.yaml
+    reason: See the high-level capability grouping after the mandatory indexes.
+  - order: 9
+    document: docs/current-state/features/repository-bootstrap/feature-detail.v1.yaml
+    reason: Read the repository bootstrap and spec-first governance contract.
+
+lookup_rules:
+  start_from_user_intent:
+    - if_intent: feature ownership or repository governance behavior is known
+      read:
+        - docs/current-state/index/feature-manifest.v1.yaml
+        - docs/current-state/features/<feature_id>/feature-detail.v1.yaml
+    - if_intent: file path or document concern is known
+      read:
+        - docs/current-state/index/touchpoint-index.v1.yaml
+        - docs/current-state/features/<feature_id>/feature-detail.v1.yaml
+    - if_intent: runtime path or execution lane is known
+      read:
+        - docs/current-state/index/runtime-topology.v1.yaml
+        - docs/current-state/features/<feature_id>/feature-detail.v1.yaml
+  canonical_working_unit: feature detail YAML
+  canonical_reverse_lookup_unit: touchpoint index
+  canonical_runtime_lookup_unit: runtime topology
+
+document_sets:
+  root_indexes:
+    required:
+      - docs/current-state/index/current-state-root.v1.yaml
+      - docs/current-state/index/documentation-system-method.v1.yaml
+      - docs/current-state/index/feature-manifest.v1.yaml
+      - docs/current-state/index/runtime-topology.v1.yaml
+      - docs/current-state/index/touchpoint-index.v1.yaml
+      - docs/current-state/index/capability-tree.v1.yaml
+    optional:
+      - docs/current-state/index/repo-state-classification.v1.yaml
+  feature_details:
+    directory: docs/current-state/features
+    naming_rule: <feature_id>/feature-detail.v1.yaml
+  supporting_overviews: []
+
+design_decisions:
+  - decision: publish current-state docs during repository genesis
+    reason: Future onboarding should not need to infer whether the repository is still bootstrap-only.
+  - decision: keep repository-bootstrap as the only active feature until public MVP extraction begins
+    reason: The repository currently contains governance and spec-first entrypoints, not product implementation.
+  - decision: classify the repo as cli with ui-mode na at genesis
+    reason: The target product is a command-line and MCP-oriented tool with no active UI.
+
+schema_keys_reference:
+  feature_manifest_required_keys:
+    - feature_id
+    - canonical_doc
+    - category
+    - primary_runtime
+    - implementation_state
+    - confidence
+    - entrypoints
+    - core_units
+    - parity
+  feature_detail_required_keys:
+    - metadata
+    - purpose
+    - identity
+    - entry_surfaces
+    - implementation_variants
+    - runtime_paths
+    - contracts_and_payloads
+    - touchpoints
+    - state_and_storage
+    - execution_phases
+    - test_and_verification
+    - confidence_and_gaps
+    - related_documents
+
+coverage_summary:
+  generated_by: repository-explanation-creation
+  confidence: high
+  known_gaps: []

@@ -1,0 +1,53 @@
+metadata:
+  document_id: codex-evidence-runtime-topology-v1
+  version: 1
+  status: active
+  canonical_name: codex-evidence-runtime-topology
+  purpose: >
+    Runtime topology for constrained-index-first current-state docs.
+  repository_root: C:/Users/tky99/dev/codex-evidence
+
+runtimes:
+  - runtime_id: repo-governance-docs
+    kind: bootstrap-docs-plus-validator
+    status: active
+    files:
+      - AGENTS.md
+      - docs/repository-genesis/repository-init-manifest.v1.yaml
+      - docs/current-state/index/current-state-root.v1.yaml
+      - docs/current-state/index/documentation-system-method.v1.yaml
+      - docs/current-state/index/feature-manifest.v1.yaml
+      - docs/current-state/index/runtime-topology.v1.yaml
+      - docs/current-state/index/touchpoint-index.v1.yaml
+      - docs/current-state/index/capability-tree.v1.yaml
+      - docs/current-state/features/repository-bootstrap/feature-detail.v1.yaml
+      - .serena/onboarding.md
+      - specs/README.md
+      - scripts/validate_current_state_docs.py
+    responsibilities:
+      - Publish the repository bootstrap contract and constrained-index-first lookup docs.
+      - Keep spec-first entrypoints discoverable before product code is extracted.
+      - Provide a repo-local validation command for future onboarding and maintenance.
+
+canonical_paths:
+  - path_id: repository-governance-bootstrap
+    chain:
+      - repo-governance-docs
+    used_by:
+      - repository-bootstrap
+
+variant_policy:
+  canonical_current_docs: docs/current-state/index + docs/current-state/features
+  retained_supporting_docs: []
+  generated_views:
+    - .serena/onboarding.md
+
+confidence_and_gaps:
+  confidence: high
+  evidence:
+    - AGENTS.md
+    - docs/repository-genesis/repository-init-manifest.v1.yaml
+    - docs/current-state/features/repository-bootstrap/feature-detail.v1.yaml
+    - specs/README.md
+    - scripts/validate_current_state_docs.py
+  open_questions: []

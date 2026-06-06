@@ -1,0 +1,89 @@
+metadata:
+  feature_id: repository-bootstrap
+  version: 1
+  status: active
+  implementation_state: implemented
+  confidence: high
+purpose:
+  summary: >
+    Tracks the codex-evidence repository genesis scaffold, spec-first governance,
+    constrained-index-first current-state publication, and validation entrypoint.
+  operator_value: >
+    Future AI sessions can understand the repository's day-zero contract without
+    inferring it from an empty or partially implemented filesystem.
+identity:
+  aliases:
+    - repository-genesis
+    - bootstrap
+  category: project-foundation
+  owner_area: repo-governance
+entry_surfaces:
+  human_reading:
+    - AGENTS.md
+    - docs/repository-genesis/repository-init-manifest.v1.yaml
+    - specs/README.md
+  machine_entrypoints:
+    - docs/current-state/index/current-state-root.v1.yaml
+    - docs/current-state/index/feature-manifest.v1.yaml
+    - scripts/validate_current_state_docs.py
+  validation_commands:
+    - python scripts/validate_current_state_docs.py --repo-root . --mode all
+implementation_variants:
+  current_mode:
+    description: >
+      Genesis-only CLI repository with AI operating contract, current-state index
+      docs, session templates, and spec-first entrypoint. Product implementation
+      has not yet been extracted.
+    status: active
+runtime_paths:
+  - repository-governance-bootstrap
+contracts_and_payloads:
+  genesis_contracts:
+    manifest: docs/repository-genesis/repository-init-manifest.v1.yaml
+    operating_contract: AGENTS.md
+    spec_entrypoint: specs/README.md
+  current_state_contracts:
+    root: docs/current-state/index/current-state-root.v1.yaml
+    feature_manifest: docs/current-state/index/feature-manifest.v1.yaml
+    runtime_topology: docs/current-state/index/runtime-topology.v1.yaml
+touchpoints:
+  by_change:
+    governance_docs:
+      - AGENTS.md
+      - docs/repository-genesis/repository-init-manifest.v1.yaml
+      - docs/current-state/index/current-state-root.v1.yaml
+      - docs/current-state/index/documentation-system-method.v1.yaml
+      - docs/current-state/index/feature-manifest.v1.yaml
+      - docs/current-state/index/runtime-topology.v1.yaml
+      - docs/current-state/index/touchpoint-index.v1.yaml
+      - docs/current-state/index/capability-tree.v1.yaml
+      - docs/current-state/features/repository-bootstrap/feature-detail.v1.yaml
+      - specs/README.md
+      - scripts/validate_current_state_docs.py
+state_and_storage:
+  persistent_storage: []
+  generated_state:
+    - docs/session_handoffs/session_handoff_template.md
+    - docs/session_handoffs/session_checkpoint_template.md
+execution_phases:
+  - phase_id: genesis
+    summary: repository-init scaffold plus constrained-index-first current-state bootstrap
+test_and_verification:
+  known_checks:
+    - python scripts/validate_current_state_docs.py --repo-root . --mode all
+  missing_checks:
+    - product implementation tests are intentionally absent before extraction
+confidence_and_gaps:
+  evidence:
+    - AGENTS.md
+    - docs/repository-genesis/repository-init-manifest.v1.yaml
+    - docs/current-state/index/current-state-root.v1.yaml
+    - specs/README.md
+    - scripts/validate_current_state_docs.py
+  assumptions:
+    - The first product implementation feature will be created by a later SDD phase.
+  open_questions:
+    - Public MVP source files have not yet been extracted.
+related_documents:
+  - specs/README.md
+  - docs/session_handoffs/session_handoff_template.md

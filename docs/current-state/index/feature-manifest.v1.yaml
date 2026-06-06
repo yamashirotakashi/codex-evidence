@@ -1,0 +1,45 @@
+metadata:
+  document_id: codex-evidence-feature-manifest-v1
+  version: 1
+  status: active
+  canonical_name: codex-evidence-feature-manifest
+  purpose: >
+    Feature manifest for constrained-index-first current-state docs.
+  repository_root: C:/Users/tky99/dev/codex-evidence
+
+features:
+  - feature_id: repository-bootstrap
+    canonical_doc: docs/current-state/features/repository-bootstrap/feature-detail.v1.yaml
+    detail_doc: docs/current-state/features/repository-bootstrap/feature-detail.v1.yaml
+    category: project-foundation
+    primary_runtime: repo-governance-docs
+    implementation_state: implemented
+    confidence: high
+    entrypoints:
+      - AGENTS.md
+      - docs/repository-genesis/repository-init-manifest.v1.yaml
+      - docs/current-state/index/current-state-root.v1.yaml
+      - .serena/onboarding.md
+      - specs/README.md
+      - scripts/validate_current_state_docs.py
+    core_units:
+      - docs/current-state/features/repository-bootstrap/feature-detail.v1.yaml
+      - docs/session_handoffs/session_handoff_template.md
+      - docs/session_handoffs/session_checkpoint_template.md
+      - docs/repository-genesis/repository-init-manifest.v1.yaml
+    parity: docs-and-governance
+    status: active
+    summary: >
+      Tracks repository genesis, spec-first governance, constrained-index-first
+      current-state publication, and the validation entrypoint used before public
+      product implementation begins.
+
+lookup_shortcuts:
+  by_primary_runtime:
+    repo-governance-docs:
+      - repository-bootstrap
+  migrated_from_legacy_docs: []
+
+coverage_summary:
+  confidence: high
+  known_unmapped_areas: []

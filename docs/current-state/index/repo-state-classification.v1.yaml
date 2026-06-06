@@ -1,0 +1,23 @@
+metadata:
+  document_id: codex-evidence-repo-state-classification-v1
+  version: 1
+  status: active
+  canonical_name: codex-evidence-repo-state-classification
+  repository_root: C:/Users/tky99/dev/codex-evidence
+
+classification:
+  mode: constrained_index_first_healthy
+  repo_type: cli
+  ui_mode: na
+  implementation_stage: genesis
+  confidence: high
+
+evidence:
+  - AGENTS.md
+  - docs/repository-genesis/repository-init-manifest.v1.yaml
+  - docs/current-state/index/current-state-root.v1.yaml
+  - docs/current-state/features/repository-bootstrap/feature-detail.v1.yaml
+  - scripts/validate_current_state_docs.py
+
+next_actions:
+  - Create the first active public product extraction spec before implementation.

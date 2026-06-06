@@ -1,0 +1,57 @@
+metadata:
+  document_id: codex-evidence-touchpoint-index-v1
+  version: 1
+  status: active
+  canonical_name: codex-evidence-touchpoint-index
+  purpose: >
+    Reverse lookup from file or concern to the owning feature.
+  repository_root: C:/Users/tky99/dev/codex-evidence
+
+touchpoints:
+  - touchpoint_id: repository-bootstrap-governance
+    files:
+      - AGENTS.md
+      - docs/repository-genesis/repository-init-manifest.v1.yaml
+      - docs/current-state/index/current-state-root.v1.yaml
+      - docs/current-state/features/repository-bootstrap/feature-detail.v1.yaml
+      - .serena/onboarding.md
+    concerns:
+      - repository bootstrap governance
+      - current-state onboarding entrypoint
+    features:
+      - repository-bootstrap
+  - touchpoint_id: spec-first-entrypoint
+    files:
+      - specs/README.md
+      - docs/session_handoffs/session_handoff_template.md
+      - docs/session_handoffs/session_checkpoint_template.md
+      - docs/current-state/features/repository-bootstrap/feature-detail.v1.yaml
+    concerns:
+      - spec-first workflow
+      - pre-implementation handoff contract
+    features:
+      - repository-bootstrap
+  - touchpoint_id: current-state-validation
+    files:
+      - scripts/validate_current_state_docs.py
+      - docs/current-state/index/current-state-root.v1.yaml
+      - docs/current-state/index/feature-manifest.v1.yaml
+      - docs/current-state/index/runtime-topology.v1.yaml
+      - docs/current-state/index/touchpoint-index.v1.yaml
+    concerns:
+      - current-state validation
+      - onboarding quality gate
+    features:
+      - repository-bootstrap
+
+reverse_lookup_notes:
+  - Product implementation has not yet been extracted; all current touchpoints belong to repository-bootstrap.
+
+confidence_and_gaps:
+  confidence: high
+  evidence:
+    - AGENTS.md
+    - docs/repository-genesis/repository-init-manifest.v1.yaml
+    - specs/README.md
+    - scripts/validate_current_state_docs.py
+  open_questions: []

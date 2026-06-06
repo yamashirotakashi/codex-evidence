@@ -1,0 +1,55 @@
+metadata:
+  document_id: codex-evidence-documentation-system-method-v1
+  version: 1
+  status: active
+  canonical_name: documentation-system-method
+  purpose: >
+    Constrained-index-first documentation method for initial repository explanation creation.
+  repository_root: C:/Users/tky99/dev/codex-evidence
+  derived_from: []
+
+method_summary:
+  method_name: constrained-index-first
+  primary_claim: >
+    Keep the mandatory index set small and move concrete repo knowledge into feature detail docs.
+  migrated_from: {}
+
+mandatory_documents:
+  - document_id: current-state-root-v1
+    role: top-level read order and lookup rules
+  - document_id: documentation-system-method-v1
+    role: documentation method contract
+  - document_id: feature-manifest-v1
+    role: feature lookup
+  - document_id: runtime-topology-v1
+    role: runtime/path lookup
+  - document_id: touchpoint-index-v1
+    role: reverse lookup
+
+feature_document_contract:
+  canonical_unit: docs/current-state/features/<feature_id>/feature-detail.v1.yaml
+  required_sections:
+    - metadata
+    - purpose
+    - identity
+    - entry_surfaces
+    - implementation_variants
+    - runtime_paths
+    - contracts_and_payloads
+    - touchpoints
+    - state_and_storage
+    - execution_phases
+    - test_and_verification
+    - confidence_and_gaps
+    - related_documents
+  inference_rule: >
+    Inferred or partial behavior must remain machine-readable through status,
+    confidence, evidence, assumptions, and open_questions.
+
+confidence_and_gaps:
+  confidence: high
+  evidence:
+    - AGENTS.md
+    - docs/repository-genesis/repository-init-manifest.v1.yaml
+    - specs/README.md
+  open_questions: []
