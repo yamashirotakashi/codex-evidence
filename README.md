@@ -73,6 +73,7 @@ python scripts/validate_current_state_docs.py --repo-root . --mode all
 ## Project Docs
 
 - [Architecture](docs/architecture.md)
+- [Roadmap](docs/roadmap.md)
 - [Testing](docs/testing.md)
 - [Dogfood Proof](docs/dogfood-proof.md)
 - [Release Checklist](docs/release-checklist-v0.1.0.md)

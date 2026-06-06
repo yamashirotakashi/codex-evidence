@@ -16,7 +16,7 @@ Status: public repository published, release tag not yet published.
 
 - Code and documentation readiness: GO for public beta candidate
 - Public GitHub push: DONE, approved by user
-- GitHub release/tag publication: NO-GO until explicit user approval
+- GitHub release/tag publication: GO, approved by user for v0.1.0 public beta
 - Codex for Open Source submission: NO-GO until explicit user approval for form submission
 
 ## Required Validation
@@ -51,7 +51,9 @@ Required files present:
 - `CONTRIBUTING.md`
 - `docs/architecture.md`
 - `docs/privacy.md`
+- `docs/roadmap.md`
 - `docs/rollback.md`
+- `docs/release-notes-v0.1.0.md`
 - `docs/testing.md`
 - `docs/dogfood-proof.md`
 - `docs/codex-for-oss-application.md`
