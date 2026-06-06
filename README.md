@@ -6,7 +6,7 @@ Local-first evidence toolkit for Codex CLI maintainers.
 
 ## Origin
 
-This project was extracted from a private local session-memo workflow and reshaped with Codex into a public, reusable maintainer tool. The initial MVP, public hygiene gate, dogfood proof, and release/application documents were developed through Codex-assisted specification, implementation, and verification.
+This project was extracted from a private local session-memo workflow and reshaped with Codex into a public, reusable maintainer tool. It applies technical book editing practices such as structuring, verification, and reproducibility to OSS maintenance context. The initial MVP, public hygiene gate, dogfood proof, and release/application documents were developed through Codex-assisted specification, implementation, and verification.
 
 ## Quickstart
 
