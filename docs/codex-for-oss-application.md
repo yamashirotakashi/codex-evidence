@@ -49,7 +49,8 @@ OpenAI フォーム上で確認した必須項目:
 - OpenAI Organization ID: チャットで受領済み。公開リポジトリに入る文書には完全な値を記載しない
 - メンテナー種別: メインメンテナー
 - 希望項目: API credits
-- public push / release / form submission の明示承認
+- public push: 承認済み
+- release / form submission: 追加の明示承認待ち
 
 ## X 検索メモ
 

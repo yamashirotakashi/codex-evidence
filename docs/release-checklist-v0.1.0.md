@@ -1,27 +1,27 @@
 # Release Checklist v0.1.0
 
-Status: local beta-ready candidate, not publicly released.
+Status: public repository published, release tag not yet published.
 
 ## Candidate
 
 - Package: `codex-evidence`
 - Version: `0.1.0`
-- Branch: `master`
-- Current local head before this checklist: `46981b3`
-- Public remote: not configured
-- Publication status: no public push performed
+- Branch: `main`
+- Public remote: `https://github.com/yamashirotakashi/codex-evidence`
+- Publication status: public branch push approved and performed
+- Release tag status: not published
 - Submission status: no Codex for Open Source form submission performed
 
 ## Release Decision
 
-- Code and documentation readiness: GO for local beta candidate
-- Public GitHub push: NO-GO until explicit user approval
+- Code and documentation readiness: GO for public beta candidate
+- Public GitHub push: GO, approved by user
 - GitHub release/tag publication: NO-GO until explicit user approval
-- Codex for Open Source submission: NO-GO until public repo URL, OpenAI Org ID, maintainer role confirmation, and user approval are available
+- Codex for Open Source submission: NO-GO until explicit user approval for form submission
 
 ## Required Validation
 
-Run before public push:
+Run before public release/tag:
 
 ```powershell
 python -m pip install -e ".[dev]"
@@ -80,32 +80,31 @@ The public beta may claim:
 - Re-running ingest with the same fixed `observed_at`, source profile, and DB creates the same ingest run ID. Use a fresh DB or a new timestamp for reproducible proof runs.
 - Runtime doctor can report local absolute runtime surfaces, so it is excluded from the public dogfood proof.
 - Codex Security access is not granted unless OpenAI approves it.
-- There are no adoption metrics yet; do not claim stars, downloads, or production usage before publication.
+- There are no adoption metrics yet; do not claim stars, downloads, or production usage before they exist.
 
-## Public Push Steps
+## Public Push
 
-Only after user approval:
-
-```powershell
-git remote add origin <public GitHub repository URL>
-git push -u origin master
-git tag v0.1.0
-git push origin v0.1.0
-```
-
-If the public repository uses `main`, rename or push accordingly before release:
+Approved by user and performed:
 
 ```powershell
+git remote add origin https://github.com/yamashirotakashi/codex-evidence
 git branch -M main
 git push -u origin main
+```
+
+Tag publication remains separately gated:
+
+```powershell
+git tag v0.1.0
+git push origin v0.1.0
 ```
 
 ## Application Steps
 
 Only after publication:
 
-- Update `docs/codex-for-oss-application.md` with the public GitHub repository URL.
-- Fill in the OpenAI organization ID.
-- Confirm maintainer role.
+- Use the public GitHub repository URL already recorded in `docs/codex-for-oss-application.md`.
+- Fill in the OpenAI organization ID received from the user. Do not commit it to public docs.
+- Use maintainer role: main maintainer.
 - Re-run validation.
 - Submit the form only after explicit user approval.
