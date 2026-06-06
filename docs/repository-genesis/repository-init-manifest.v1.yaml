@@ -10,7 +10,7 @@ genesis_policy:
   onboarding_required: true
 shared_ui_contract:
   enabled: false
-  baseline: TECHZIP-Tauri
+  baseline: none
   canonical_paths:
     - none
 next_skill_hints:
