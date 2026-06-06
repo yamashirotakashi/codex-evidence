@@ -1,0 +1,48 @@
+{
+  "authority": "canonical",
+  "confidence": 0.8,
+  "current_relevance": [
+    {
+      "event_id": "evt_a7f79b8feb5611ae8b3e24960686fe69",
+      "event_kind": "current_state_doc",
+      "excerpt": "metadata:\n  feature_id: repository-bootstrap\n  version: 1\n  status: active\n  implementation_state: implemented\n  confidence: high\npurpose:\n  summary: >\n    Tracks the codex-evidence repository genesis scaffold, spec-first governance,\n    constrained-index-first current-state publication, and validation entrypoint.\n  operator_value: >\n    Future AI sessions can understand the repository's day-zero "
+    },
+    {
+      "event_id": "evt_37d2a50482256c7922ef6cd6e765b2f9",
+      "event_kind": "current_state_doc",
+      "excerpt": "metadata:\n  document_id: codex-evidence-capability-tree-v1\n  version: 1\n  status: active\n  canonical_name: codex-evidence-capability-tree\n  purpose: >\n    Optional capability grouping for constrained-index-first docs.\n  repository_root: <repo-root>\n\ncapabilities:\n  - capability_id: repository-governance\n    title: Repository governance and onboarding\n    feature_ids:\n      - repository-bootstrap\n "
+    },
+    {
+      "event_id": "evt_a8bdd68cce3b8cf496063dc67ec65605",
+      "event_kind": "current_state_doc",
+      "excerpt": "metadata:\n  document_id: codex-evidence-current-state-root-v1\n  version: 1\n  status: active\n  canonical_name: codex-evidence-current-state-root\n  purpose: >\n    Top-level constrained-index-first root for onboarding and future AI sessions\n    in the codex-evidence repository.\n  repository_root: <repo-root>\n\nmandatory_read_order:\n  - order: 1\n    document: AGENTS.md\n    reason: Confirm the repo-loca"
+    }
+  ],
+  "recommended_next_action": "Review source_refs before acting on the evidence.",
+  "repo": "",
+  "risks": [],
+  "schema_version": "evidence_card.v1",
+  "source_refs": [
+    {
+      "line_end": 89,
+      "line_start": 1,
+      "path": "docs/current-state/features/repository-bootstrap/feature-detail.v1.yaml",
+      "source_ref_id": "src_611cb218e6ff35867eb02c934c0fe810"
+    },
+    {
+      "line_end": 18,
+      "line_start": 1,
+      "path": "docs/current-state/index/capability-tree.v1.yaml",
+      "source_ref_id": "src_40b295113944dde34029a1bc855c3a50"
+    },
+    {
+      "line_end": 112,
+      "line_start": 1,
+      "path": "docs/current-state/index/current-state-root.v1.yaml",
+      "source_ref_id": "src_47a5e932eedb21b3453f42d07b6d6204"
+    }
+  ],
+  "summary": "Evidence card for 'bootstrap': 3 result(s)",
+  "warnings": [],
+  "workline": ""
+}

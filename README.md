@@ -70,6 +70,7 @@ python scripts/validate_current_state_docs.py --repo-root . --mode all
 
 - [Architecture](docs/architecture.md)
 - [Testing](docs/testing.md)
+- [Dogfood Proof](docs/dogfood-proof.md)
 - [Privacy](docs/privacy.md)
 - [Rollback](docs/rollback.md)
 - [Security](SECURITY.md)
