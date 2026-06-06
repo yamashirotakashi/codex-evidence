@@ -1,64 +1,65 @@
-# Codex for Open Source Application Packet
+# Codex for Open Source 申請パケット
 
-Verified on 2026-06-06.
+確認日: 2026-06-06
 
-## Official Form Source
+## 公式フォーム情報
 
-- Form: https://openai.com/ja-JP/form/codex-for-oss/
-- Official program page linked from the form: https://developers.openai.com/codex-for-oss/
-- Program terms are linked from the form, but the terms page body was not retrieved in this session. Do not claim details from the terms beyond the form text.
+- 申請フォーム: https://openai.com/ja-JP/form/codex-for-oss/
+- フォームからリンクされている公式プログラムページ: https://developers.openai.com/codex-for-oss/
+- フォーム上には Program Terms へのリンクがある。ただし、このセッションでは規約本文までは取得できていないため、規約本文の詳細は断定しない。
 
-## Current Official Fields
+## 現在確認できた公式フォーム項目
 
-Required fields observed on the OpenAI form:
+OpenAI フォーム上で確認した必須項目:
 
-- Last name
-- First name
-- Email address for the ChatGPT account
-- GitHub username, with public profile
-- GitHub repository URL, with public repository
-- Maintainer role: main maintainer or core maintainer
-- Why the repository qualifies, 500 characters max
-- Interests: Codex Security, API credits, or both
-- OpenAI organization ID
-- How API credits will be used, 500 characters max
+- 姓
+- 名
+- ChatGPT アカウントのメールアドレス
+- GitHub ユーザー名。公開プロフィールであること
+- GitHub リポジトリ URL。公開リポジトリであること
+- メンテナー種別: メインメンテナーまたはコアメンテナー
+- リポジトリが対象にふさわしい理由。500文字以内
+- 希望項目: Codex Security、API credits、または両方
+- OpenAI Organization ID
+- API credits の用途。500文字以内
 
-Optional field:
+任意項目:
 
-- Anything else to share, 500 characters max
+- 補足事項。500文字以内
 
-The form says applications are reviewed on a rolling basis.
+フォーム上では、申請は rolling basis、つまり随時審査と説明されている。
 
-## Eligibility Reading
+## 適格性の読み取り
 
-Observed official eligibility and review emphasis:
+公式フォーム上で確認した審査観点:
 
-- Active open-source maintainers can apply.
-- Projects should be used, broadly adopted, or clearly important to a software ecosystem.
-- Review considers repository usage, ecosystem importance, and ongoing maintenance.
-- Maintainer work examples include pull request review, issue triage, and release management.
+- active open-source maintainer、つまり継続的に OSS を保守している人が対象。
+- プロジェクトは、実際に使われている、広く採用されている、またはソフトウェア ecosystem にとって重要であることが期待されている。
+- 審査では、利用状況、ecosystem 上の重要性、継続的なメンテナンス状況が見られる。
+- メンテナー作業の例として、pull request review、issue triage、release management が挙げられている。
 
-For `codex-evidence`, the strongest honest angle is not current adoption metrics. It is ecosystem importance: helping Codex-using OSS maintainers preserve and recover maintenance context safely across long-running work.
+`codex-evidence` の正直で強い訴求点は、現時点の adoption metrics ではない。Codex を使う OSS メンテナーが、長時間作業で失われがちな保守文脈を安全に保持・検索・再利用できるようにする ecosystem importance で押す。
 
-## Submission Blockers
+## 申請前ブロッカー
 
-Do not submit until these are resolved:
+以下が揃うまでフォーム送信はしない。
 
-- Public GitHub repository URL is available.
-- GitHub profile and repository are public.
-- OpenAI organization ID is known.
-- User confirms whether to select main maintainer or core maintainer.
-- User approves public push/release as a separate action.
+- GitHub リポジトリ URL: `https://github.com/yamashirotakashi/codex-evidence`
+- GitHub プロフィールと対象リポジトリが public であること
+- OpenAI Organization ID: チャットで受領済み。公開リポジトリに入る文書には完全な値を記載しない
+- メンテナー種別: メインメンテナー
+- 希望項目: API credits
+- public push / release / form submission の明示承認
 
-## X Search Notes
+## X 検索メモ
 
-Source: Grok X Search through the local Responses gateway on 2026-06-06. The search made 3 X Search calls.
+取得方法: 2026-06-06 に local Responses gateway 経由の Grok X Search を使用。X Search call は 3 回。
 
-Observed posts:
+確認した投稿:
 
-- Official announcement by OpenAI Developers: https://x.com/OpenAIDevs/status/2029998202934677938
-- OpenAI staff thread by Vaibhav Srivastav: https://x.com/reach_vb/status/2029998272945717553
-- Recent awareness and application guide posts:
+- OpenAI Developers による公式告知: https://x.com/OpenAIDevs/status/2029998202934677938
+- OpenAI staff の Vaibhav Srivastav による紹介 thread: https://x.com/reach_vb/status/2029998272945717553
+- 最近の周知・申請ガイド投稿:
   - https://x.com/0x_beni_/status/2063253087402205543
   - https://x.com/denysdovhan/status/2062881723449241688
   - https://x.com/exploraX_/status/2062807962251304983
@@ -66,58 +67,63 @@ Observed posts:
   - https://x.com/miftaikyy/status/2062147165623873776
   - https://x.com/very_reserved/status/2062457500570448179
 
-Inference from X search:
+X 検索からの推論:
 
-- Many posts frame the program as a benefit package. The application should not sound benefit-seeking.
-- Recent posts include application guides and at least one approval report, so the program appears active.
-- A strong application should be concrete: public repo, maintainer workflow, proof artifact, safety boundary, and API-credit usage.
+- 多くの投稿は benefit package として紹介している。申請文は「得をしたい」方向ではなく、具体的なメンテナー作業価値を前面に出す。
+- 最近の投稿には申請ガイドや承認報告があり、プログラムは継続中と見てよい。
+- 強い申請文に必要なのは、公開リポジトリ、メンテナー作業、dogfood proof、安全境界、API credits の具体的用途。
 
-## Draft Answers
+## フォーム入力案
 
-### Repository URL
+### GitHub リポジトリ URL
 
-`<public GitHub repository URL>`
+```text
+https://github.com/yamashirotakashi/codex-evidence
+```
 
-### Maintainer Role
+### メンテナー種別
 
-Recommended selection after public repo creation: `Main maintainer`, if the user owns and maintains the new repository.
+```text
+メインメンテナー
+```
 
-### Why This Repository Qualifies
+### このリポジトリが対象にふさわしい理由
 
-Character count: 230.
+文字数: 230
 
 ```text
 codex-evidenceは、Codexを使うOSSメンテナーが、ローカルのcurrent-state/handoff/ログ断片をSQLiteに取り込み、検索可能なevidence_cardと再開用context-packへ圧縮するCLI/MCPツールです。レビューやリリース前後の長時間作業で失われる文脈を、read-only MCPと公開hygiene gateで安全に再利用できます。公開MVPはdogfood済みで、個人履歴を読まない実証も含みます。
 ```
 
-### Interested Items
+### 希望項目
 
-Recommended:
+```text
+API credits
+```
 
-- API credits
-- Codex Security, only if the repository is public and security scanning access is appropriate
+Codex Security は今回は選択しない。必要になった場合だけ、公開後の security scanning 目的として別途検討する。
 
 ### OpenAI Organization ID
 
-`<OpenAI organization ID>`
+送信時にフォームへ入力する。公開リポジトリに含まれる文書には完全な値を記載しない。
 
-### API Credit Usage
+### API credits の用途
 
-Character count: 196.
+文字数: 196
 
 ```text
 API creditsは、実際のメンテナー作業を想定したdogfoodに使います。長いIssue/PR対応後の再開context生成、テスト失敗・セキュリティ警告の根拠カード化、リリース前チェックリストの生成、MCP経由のread-only検索品質評価を、公開fixtureとCIで再現できる形にします。プロジェクト本体はlocal-firstで、個人データを外部送信しない設計を維持します。
 ```
 
-### Anything Else
+### 補足事項
 
-Character count: 176.
+文字数: 176
 
 ```text
 この申請は、Codexを単に使うためではなく、Codex利用者自身の保守文脈を安全に残すOSS基盤を作るためのものです。現時点の公開範囲はlocal-first CLI、SQLite/FTS検索、context-pack、read-only MCP、reversible runtime登録に限定し、未実装のPR自動レビューや広域自動化は主張しません。
 ```
 
-## Evidence To Link After Publication
+## 公開後にフォームから参照できる証跡
 
 - `docs/dogfood-proof.md`
 - `examples/dogfood-ingest.json`
@@ -126,10 +132,9 @@ Character count: 176.
 - `scripts/check_public_hygiene.py`
 - `docs/privacy.md`
 - `docs/architecture.md`
+- `docs/release-checklist-v0.1.0.md`
 
-## Claim Guardrails
-
-Use these claims:
+## 主張してよいこと
 
 - local-first evidence ingestion
 - SQLite/FTS search
@@ -137,12 +142,12 @@ Use these claims:
 - read-only MCP
 - opt-in and reversible runtime registration
 - public hygiene gate
-- dogfood proof with private Codex sessions/logs excluded
+- 個人の Codex sessions/logs を除外した dogfood proof
 
-Avoid these claims:
+## 主張しないこと
 
 - automated pull request review
 - issue triage automation
 - broad cross-repository orchestration
-- production adoption or usage metrics before they exist
-- Codex Security access approval before OpenAI grants it
+- 実績が出る前の production adoption や usage metrics
+- OpenAI に承認される前の Codex Security access
