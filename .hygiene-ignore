@@ -1,0 +1,3 @@
+# glob :: regex :: reason
+tests/*.py :: sk-[A-Za-z0-9_-]+ :: synthetic redaction fixtures; tests assert these values are redacted from output
+src/codex_evidence/core/redaction.py :: sk-\[A-Za-z0-9_-]\+ :: secret-pattern detector regex, not a live secret

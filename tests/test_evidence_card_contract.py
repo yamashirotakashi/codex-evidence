@@ -16,14 +16,14 @@ def test_evidence_card_infers_repo_from_windows_docs_path():
         content_text="status: active",
         observed_sequence=0,
         normalized_path=(
-            r"C:\Users\tky99\dev\sample-repo\docs\current-state\index"
+            r"C:\Users\example\dev\sample-repo\docs\current-state\index"
             r"\current-state-root.v1.yaml"
         ),
     )
 
     card = build_evidence_card("active", SearchQueryResult(results=[result]))
 
-    assert card["repo"] == "c:/users/tky99/dev/sample-repo"
+    assert card["repo"] == "c:/users/example/dev/sample-repo"
 
 
 def test_cel_t05_requires_shared_card_builder_and_readonly_side_effect_ban():
@@ -42,3 +42,4 @@ def test_cel_t05_requires_shared_card_builder_and_readonly_side_effect_ban():
     assert "no ingest_run creation" in out_of_scope
     assert "no redaction job" in out_of_scope
     assert "same warning code contract as CLI context-pack" in done_definition
+

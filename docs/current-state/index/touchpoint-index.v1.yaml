@@ -5,7 +5,7 @@ metadata:
   canonical_name: codex-evidence-touchpoint-index
   purpose: >
     Reverse lookup from file or concern to the owning feature.
-  repository_root: C:/Users/tky99/dev/codex-evidence
+  repository_root: <repo-root>
 
 touchpoints:
   - touchpoint_id: repository-bootstrap-governance
@@ -55,3 +55,4 @@ confidence_and_gaps:
     - specs/README.md
     - scripts/validate_current_state_docs.py
   open_questions: []
+

@@ -6,7 +6,7 @@ metadata:
   purpose: >
     Top-level constrained-index-first root for onboarding and future AI sessions
     in the codex-evidence repository.
-  repository_root: C:/Users/tky99/dev/codex-evidence
+  repository_root: <repo-root>
 
 mandatory_read_order:
   - order: 1
@@ -109,3 +109,4 @@ coverage_summary:
   generated_by: repository-explanation-creation
   confidence: high
   known_gaps: []
+

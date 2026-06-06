@@ -5,7 +5,7 @@ metadata:
   canonical_name: documentation-system-method
   purpose: >
     Constrained-index-first documentation method for initial repository explanation creation.
-  repository_root: C:/Users/tky99/dev/codex-evidence
+  repository_root: <repo-root>
   derived_from: []
 
 method_summary:
@@ -53,3 +53,4 @@ confidence_and_gaps:
     - docs/repository-genesis/repository-init-manifest.v1.yaml
     - specs/README.md
   open_questions: []
+

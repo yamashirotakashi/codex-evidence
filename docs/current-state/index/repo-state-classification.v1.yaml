@@ -3,7 +3,7 @@ metadata:
   version: 1
   status: active
   canonical_name: codex-evidence-repo-state-classification
-  repository_root: C:/Users/tky99/dev/codex-evidence
+  repository_root: <repo-root>
 
 classification:
   mode: constrained_index_first_healthy
@@ -21,3 +21,4 @@ evidence:
 
 next_actions:
   - Create the first active public product extraction spec before implementation.
+

@@ -5,7 +5,7 @@ metadata:
   canonical_name: codex-evidence-runtime-topology
   purpose: >
     Runtime topology for constrained-index-first current-state docs.
-  repository_root: C:/Users/tky99/dev/codex-evidence
+  repository_root: <repo-root>
 
 runtimes:
   - runtime_id: repo-governance-docs
@@ -51,3 +51,4 @@ confidence_and_gaps:
     - specs/README.md
     - scripts/validate_current_state_docs.py
   open_questions: []
+

@@ -129,7 +129,7 @@ def test_hook_events_are_deduplicated_and_labelled_best_effort(tmp_path):
             payload={
                 "hook_event_name": "PostToolUse",
                 "failure_signature": "pytest failed tests/test_reports.py",
-                "cwd": "C:/Users/tky99/dev/session_memo",
+                "cwd": "C:/Users/example/dev/sample-repo",
                 "tool_name": "exec_command",
             },
         )
@@ -249,3 +249,4 @@ def test_batch_report_populates_operational_categories(tmp_path):
     assert report["current_state_gate_failures"][0]["event_ids"] == ["evt_gate"]
     assert report["mcp_config_drifts"][0]["event_ids"] == ["evt_mcp"]
     assert report["restart_recovery_incidents"][0]["event_ids"] == ["evt_restart"]
+

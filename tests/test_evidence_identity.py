@@ -10,13 +10,13 @@ from codex_evidence.core.links import EvidenceLink
 
 def test_stable_ids_are_deterministic_for_same_source():
     first = make_source_ref_id(
-        source_path="C:/Users/tky99/dev/session_memo/AGENTS.md",
+        source_path="C:/Users/example/dev/sample-repo/AGENTS.md",
         content="contract",
         line_start=1,
         line_end=5,
     )
     second = make_source_ref_id(
-        source_path="C:\\Users\\tky99\\dev\\session_memo\\AGENTS.md",
+        source_path="C:\\Users\\example\\dev\\sample-repo\\AGENTS.md",
         content="contract",
         line_start=1,
         line_end=5,
@@ -56,3 +56,4 @@ def test_event_links_to_source_ref_and_artifact():
     assert link.source_ref_id == "src_abc"
     assert link.artifact_id == "art_abc"
     assert link.derived_cluster_id == "clu_abc"
+

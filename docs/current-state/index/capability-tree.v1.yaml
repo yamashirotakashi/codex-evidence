@@ -5,7 +5,7 @@ metadata:
   canonical_name: codex-evidence-capability-tree
   purpose: >
     Optional capability grouping for constrained-index-first docs.
-  repository_root: C:/Users/tky99/dev/codex-evidence
+  repository_root: <repo-root>
 
 capabilities:
   - capability_id: repository-governance
@@ -15,3 +15,4 @@ capabilities:
     summary: >
       Provides the genesis contract, constrained-index-first current-state docs,
       spec-first entrypoint, and validation wrapper for future implementation.
+

@@ -5,7 +5,7 @@ metadata:
   canonical_name: codex-evidence-feature-manifest
   purpose: >
     Feature manifest for constrained-index-first current-state docs.
-  repository_root: C:/Users/tky99/dev/codex-evidence
+  repository_root: <repo-root>
 
 features:
   - feature_id: repository-bootstrap
@@ -43,3 +43,4 @@ lookup_shortcuts:
 coverage_summary:
   confidence: high
   known_unmapped_areas: []
+
