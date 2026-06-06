@@ -283,6 +283,11 @@ def initialize_database(db_path: str | Path) -> None:
         _apply_schema_to_conn(conn)
 
 
+def checkpoint_database(db_path: str | Path) -> None:
+    with _connect(db_path) as conn:
+        list(conn.execute("PRAGMA wal_checkpoint(TRUNCATE)"))
+
+
 def list_tables(db_path: str | Path) -> set[str]:
     with _connect(db_path) as conn:
         rows = conn.execute(

@@ -3,7 +3,7 @@ from __future__ import annotations
 import json
 import sqlite3
 
-from codex_evidence.core.schema import connect_database
+from codex_evidence.core.schema import checkpoint_database, connect_database
 from codex_evidence.core.store_parts.links import LinkStore
 from codex_evidence.core.store_parts.records import (
     ArtifactRecord,
@@ -83,6 +83,7 @@ class WriteStore(LinkStore):
                 self._insert_artifact_source_link(
                     conn, artifact.artifact_id, source_ref.source_ref_id
                 )
+        checkpoint_database(self.db_path)
         return inserted
 
     def has_equivalent_event(
